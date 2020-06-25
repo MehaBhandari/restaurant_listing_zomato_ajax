@@ -6,7 +6,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="./index.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="./index.css" />
     </head>
     <body>
@@ -30,32 +30,33 @@
                 </form>
             </div>
         </nav>
-        <div id="restaurantListing">
-            <div class="card" style="width: 18rem;">
+        <div id="restaurantListing" class="row">
+            <!-- <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" alt="Card image cap" />
                 <div class="card-body">
                     <h5 class="card-title">La Sirena restaurant</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Delete</a>
                 </div>
-            </div>
-        </div>
-        <!-- Card -->
+            </div> -->
+        </div>        
         <div id="addARestaurant">
             <h2>Add a restaurant</h2>
             <h4>Basic info</h4>
             <form>
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="validationDefault01">First name</label>
-                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required />
+                        <label for="validationDefault01">RESTAURANT NAME*</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="RESTAURANT NAME" required />
+                    </div>
+                <div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationDefault02">CITY*</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="CITY" required />
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationDefault02">Last name</label>
-                        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required />
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationDefaultUsername">Username</label>
+                        <label for="validationDefaultUsername">ARE YOU THE OWNER OR MANAGER OF THIS PLACE?*</label>
                         <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroupPrepend2">@</span></div>
                             <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required pattern="[0-9]{5}" />
@@ -122,5 +123,6 @@
                 </p>
             </div>
         </div>
+        <script src="./index.js"></script>
     </body>
 </html>

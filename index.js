@@ -90,3 +90,22 @@ restaurants = [{
     'name': 'GINGER HOUSE, COCHIN',
     'description': 'In Cochin’s historic Jew Town district, the waterfront Ginger House bills itself as a “museum restaurant.” What that means: prior to dining, you’ll be able to browse the antiques and sculptures that fill the companion Heritage Arts showroom, including a traditional carved wooden snake boat.'
 }]
+
+// Creating Products from the Available list of Products from URL
+function displayProduct(productList) {
+    productList.forEach( (value, index) => {
+        var cardBody = "<div class=' col-3 cardStyle d-flex align-items-stretch'>";
+        cardBody+= "<div class='card' style='width: 18rem;'>";
+        cardBody+="<img class='card-img-top' src='"+value.img +"' alt='Card image cap'/>";
+        cardBody+="<div class='card-body'>";
+        cardBody+="<h5 class='card-title'>"+value.name+"</h5>";
+        cardBody+="<p class='card-text'>"+value.description+"</p>";
+        cardBody+="<a href='#' class='btn btn-primary'>Delete</a>";
+        cardBody+= "</div>";
+        cardBody+= "</div>";
+        cardBody+= "</div>";
+        document.getElementById("restaurantListing").innerHTML+= cardBody;
+    });   
+}
+
+displayProduct(restaurants);
