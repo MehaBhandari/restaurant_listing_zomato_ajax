@@ -1,6 +1,14 @@
 #aboutUs{
-    background-color: gainsboro;
+    background-color: whitesmoke;
     margin-top: 2rem;
+    padding: 0.25rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+#addARestaurant {
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 body{

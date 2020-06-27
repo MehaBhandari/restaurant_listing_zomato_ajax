@@ -107,5 +107,15 @@ function displayProduct(productList) {
         document.getElementById("restaurantListing").innerHTML+= cardBody;
     });   
 }
-
 displayProduct(restaurants);
+
+$(document).ready(function(){});
+
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      alert('Hii');
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  }
