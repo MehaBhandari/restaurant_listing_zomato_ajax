@@ -6,94 +6,91 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./index.css" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#restaurantListing"><img height="55px;" src="./images/zomato.png" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <img height="55px;" src="./images/zomato.png" />
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#aboutUs">About Us <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" id="home" onclick="show_divListing(event);">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#addARestaurant">Add a Restaurant</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="about" onclick="show_divAboutUs(event);">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" onclick="show_div(event);">Add a Restaurant</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" />
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input id="inputText" class="form-control mr-sm-2" type="search" placeholder="Search" />
+                    <input type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="searchFunc();" value="Search">
                 </form>
             </div>
         </nav>
         <div id="restaurantListing" class="row">
         </div>        
-        <div id="addARestaurant">
-            <h2>Add a restaurant</h2>
-            <h4>Basic info</h4>
-            <form>
+        <div id="addARestaurant" style="display: none;">
+            <h2>Add a restaurant</h2><br/>  
+            <div>
                 <div class="form-group">
                     <label>RESTAURANT NAME*</label>
                     <input type="input" class="form-control" id="restaurantName" placeholder="Enter restaurant name...">
                 </div>
                 <div class="form-group">
                     <label>CITY*</label>
-                    <input type="input" class="form-control" id="cityName" placeholder="Enter city name...">
+                    <input type="input" class="form-control" id="restaurantCity" placeholder="Enter city name...">
+                </div>
+                <div class="form-group">
+                    <label>Enter Restaurant Image*</label>
+                    <input type="input" class="form-control" id="restaurantImage" placeholder="Enter Image">
                 </div>
                 <div class="form-group">
                     <label>Enter Description*</label>
                     <textarea class="form-control" id="restaurantDescription" rows="3" placeholder="Enter restaurant description..."></textarea>
                 </div>
-                <!-- radio -->
-                <div class="form-group">
-                    <label>ARE YOU THE OWNER OR MANAGER OF THIS PLACE?*</label>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
-                        <label class="custom-control-label" for="customRadio">Yes</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx">
-                        <label class="custom-control-label" for="customRadio2">No</label>
-                    </div>                    
-                </div>
-                <input type="submit" class="btn btn-primary" id="submitBtn" onclick="loadDoc()" value="Submit" />
-            </form>
+                <input type="button" class="btn btn-primary" id="submitBtn" onclick="addRestraurant()" value="Submit" />
+            </div>
         </div>
-        <div id="aboutUs">
+        <div id="aboutUs" style="display: none;">
             <div>
-                <h1>About US</h1>
-                <h3>OUR MISSION</h3>
+                <h1>About US</h1><br/>
+                <h5>OUR MISSION</h5>
                 <p>Shaping the future of food</p>
-                <h3>Our goal is to change what you eat</h3>
+                <br/>
+                <h5>Our goal is to change what you eat</h5>
                 <p>Changing how you eat is just a means to an end.</p>
-                <h3>Improving quality of food</h3>
+                <br/>
+                <h5>Improving quality of food</h5>
                 <p>We are committed to nurturing a neutral platform and are helping food establishments maintain high standards through Hyperpure. Food Hygiene Ratings is a coveted mark of quality among our restaurant partners.</p>
-
-                <h3>Accessibility</h3>
+                <br/>
+                <h5>Accessibility</h5>
                 <p>Boosting accessibility for customers</p>
                 <p>Our delivery service is reaching more and more cities. We are actively growing our services - table reservation, food@work for corporate catering and are continuing to power Feeding India.</p>
-
-                <h3>Affordability</h3>
+                <br/>
+                <h5>Affordability</h5>
                 <p>Focusing on affordability</p>
                 <p>
                     The benefits of providing an interesting choice are embodied by the success of Zomato Gold. We are leaving no stone unturned when it comes to making food more affordable without compromising on the profitability of a
                     given restaurant.
                 </p>
-
-                <h3>Assortment</h3>
+                <br/>
+                <h5>Assortment</h5>
                 <p>Driving the force of assortment</p>
                 <p>For over a decade now, we’ve been empowering our users in discovering new tastes and experiences across countries. By putting together meticulous information for our users, we enable them to make an informed choice.</p>
-                <h3>Who are we?</h3>
+                <br/>
+                <h5>Who are we?</h5>
                 <p>
                     Launched in Delhi 11 years ago, Zomato has grown from a home project to one of the largest food aggregators in the world. We are present in 24 countries and 10000+ cities globally, enabling our vision of better food for
                     more people. We not only connect people to food in every context but work closely with restaurants to enable a sustainable ecosystem.
                 </p>
-
-                <h3>Our Journey</h3>
+                <br/>
+                <h5>Our Journey</h5>
                 <p>
                     Back in 2008, all it took was an idea to enable digital access to thousands of restaurant menus. Three passionate foodies who hated waiting in lines, drove around Delhi to collect menus from restaurants, scan them and
                     put them online. Their idea has now grown into the vision that drives our team of 5000+ people everyday.
