@@ -16,7 +16,10 @@ function displayProduct(productList) {
         cardBody+="<img class='card-img-top' src='"+value.img +"' alt=' Image of "+value.name+"'/>";
         cardBody+="<div class='card-body'>";
         cardBody+="<h5 class='card-title'>"+value.name+"</h5>";
-        cardBody+="<p class='card-text'>"+value.description+"</p>";
+        cardBody+="<div class='card-text'>"
+        cardBody+="<p>"+value.description+ "</p>"
+        cardBody+="<b>Rating: " + value.rating + "</b>"
+        cardBody+="</div> <br/>"                
         cardBody+="<a id=" + value.id + " class='btn btn-primary' onclick='deleteRestaurant(event)'>Delete</a>";
         cardBody+= "</div>";
         cardBody+= "</div>";
@@ -29,7 +32,6 @@ function displayProduct(productList) {
 function deleteRestaurant(event) {
     event.preventDefault();
     var id = event.target.id;
-    debugger;
     $.ajax({
         url: "http://localhost:3000/restaurants/" + id,
         type: 'DELETE',
@@ -59,7 +61,8 @@ function addRestraurant() {
         "id": new Date().valueOf(),
         "img": document.getElementById("restaurantImage").value,
         "name": document.getElementById("restaurantName").value,
-        "description": document.getElementById("restaurantDescription").value
+        "description": document.getElementById("restaurantDescription").value,
+        rating: 5
     }).done((data) => {
         show_divListing()
         loadDoc();
@@ -75,7 +78,7 @@ function searchFunc(){
     displayProduct(filteredList);
 }
 
-// Functionality of Click to view About Us 
+// Functionality of Click to view About Us Tab
 function show_divAboutUs(event){
     if(event) {
         event.preventDefault();
@@ -85,7 +88,7 @@ function show_divAboutUs(event){
     document.getElementById("aboutUs").style.display = "block";
 }
 
-// Functionality of Click to view Restaurant Listing 
+// Functionality of Click to view (Restaurant Listing) Home Tab
 function show_divListing(event){
     if(event) {
         event.preventDefault();
@@ -95,7 +98,7 @@ function show_divListing(event){
     document.getElementById("aboutUs").style.display = "none";
 }
 
-// Functionality of Click to view Add A Restaurant 
+// Functionality of Click to view Add A Restaurant Tab
 function show_div(event){
     if(event) {
         event.preventDefault();
